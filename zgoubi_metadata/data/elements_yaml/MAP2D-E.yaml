@@ -1,7 +1,7 @@
 zgoubi_name: MAP2D-E
 params:
   IC: {type: I, unit:"", default: 1, doc: "Print the field map"}
-  IL: {type: I, unit:"", default: 0, doc: ""}
+  IL: {type: I, unit:"", default: 0, doc: "Print coordinates"}
   ENORM': {type: E, unit:"", default: 0.0, doc: "Field conversion coeffs"}
   X-NORM: {type: E, unit:"", default: 0.0, doc: "X-coordinate unit conversion coeffs"}
   Y-NORM: {type: E, unit:"", default: 0.0, doc: "Y-coordinate unit conversion coeffs"}
@@ -10,9 +10,9 @@ params:
   JY: {type: I, unit:"", default: 0.0, doc: "Number of horizontal-transverse nodes of the mesh"}
   FNAME: {type: A, unit:"", default: '', doc: "File name"}
   ID: {type: I, unit:"", default: '', doc: "File name"}
-  A: {}
-  B: {}
-  C: {}
+  A: {type: E, unit: "", default: 0.0, doc: "Integration boundary"}
+  B: {type: E, unit: "", default: 0.0, doc: "Integration boundary"}
+  C: {type: E, unit: "", default: 0.0, doc: "Integration boundary"}
   IORDRE: {type: I, unit: "",  default: 2, doc: "Degree of polynomial interpolation, 2nd or 4th order"}
   XPAS: {type: E, unit: "", unit: "", unit: 'mm', default: 1, doc: "Integration step"}
   KPOS: {type: I, unit: "", default: 0, doc: "KPOS =1 : element aligned, 2 : misaligned"}
@@ -42,16 +42,17 @@ template:
   - ALE
 
 doc: |
+
   2-D Cartesian uniform mesh field map - arbitrary electric field
 
   .. rubric:: Zgoubi manual description
 
-  MAP2D-E reads a 2-D field map that provides the three components EX, EY , EZ of the electric field at
-  all nodes of a 2-D Cartesian uniform mesh in an (X, Y ) plane. No particular symmetry is assumed, which
-  allows the treatment of any type of field (e.g., field of a parallel-plate mirror with arbitrary Z elevation - the
+  ``MAP2D-E`` reads a 2-D field map that provides the three components :math:`E_X`, :math:`E_Y`, :math:`E_Z`
+  of the electric field at all nodes of a 2-D Cartesian uniform mesh in an (X, Y) plane.
+  No particular symmetry is assumed, which allows the treatment of any type of field (e.g., field of a parallel-plate mirror with arbitrary Z elevation - the
   map needs not be a mid-plane map).
   The field map data file has to be be filled with a format that satisfies the FORTRAN reading sequence
-  below (in principle compatible with TOSCA code outputs), details and possible updates are to be found in
+  below (in principle compatible with ``TOSCA`` code outputs), details and possible updates are to be found in
   the source file ’fmapw.f’ :
     OPEN (UNIT = NL, FILE = FNAME, STATUS = ‘OLD’ [,FORM=’UNFORMATTED’])
     DO 1 J=1,JY
@@ -71,5 +72,5 @@ doc: |
   At each step of the trajectory of a particle, the field and its derivatives are calculated using a second or
   fourth degree polynomial interpolation followed by a Z extrapolation (see sections 1.3.4 page 26, 1.4.3
   page 31). The interpolation grid is 3*3-node for 2nd order (option IORDRE = 2) or 5*5 for 4th order
-  (option IORDRE = 4).
-  Entrance and/or exit integration boundaries may be defined, in the same way as for CARTEMES.
+  (option ``IORDRE`` = 4).
+  Entrance and/or exit integration boundaries may be defined, in the same way as for ``CARTEMES``.

@@ -43,12 +43,12 @@ params:
   IP: {type: I, unit: "", default: 0, doc: "Number of bars of the grid"}
   IX: {type: I, unit: "", default: 0, doc: "Number of bars of the grid"}
   ID: {type: I, unit: "", default: 0, doc: "Number of bars of the grid"}
-  PY: {type: E, unit: "m", default: 0, doc: "Distance between bars"}
-  PT: {type: E, unit: "rad", default: 0, doc: "Distance between bars"}
-  PZ: {type: E, unit: "m", default: 0, doc: "Distance between bars"}
-  PP: {type: E, unit: "rad", default: 0, doc: "Distance between bars"}
-  PX: {type: E, unit: "m", default: 0, doc: "Distance between bars"}
-  PD: {type: E, unit: "", default: 0, doc: "Distance between bars"}
+  PY: {type: E, unit: "m", default: 0.0, doc: "Distance between bars"}
+  PT: {type: E, unit: "rad", default: 0.0, doc: "Distance between bars"}
+  PZ: {type: E, unit: "m", default: 0.0, doc: "Distance between bars"}
+  PP: {type: E, unit: "rad", default: 0.0, doc: "Distance between bars"}
+  PX: {type: E, unit: "m", default: 0.0, doc: "Distance between bars"}
+  PD: {type: E, unit: "", default: 0.0, doc: "Distance between bars"}
 
 
 template:
