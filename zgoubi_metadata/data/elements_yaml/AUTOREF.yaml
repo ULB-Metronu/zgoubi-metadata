@@ -64,3 +64,4 @@ doc: |
   - If I = 4.2 : same as 4.1, except that particles all have their timing set to TIME.
   - If I = 5 : new vertical beam centroid positionning ZCE, PLE (position, angle) is provided. The beam is centered on
   vertical position and angle ZCE, PLE.
+...

@@ -9,38 +9,32 @@ params:
 template:
   - - IOPT
   - - !!set {cond_section}
-cond_section:
-- key: IOPT
-  equals: 0
-  template:
-  - - X
-    - X
-- key: IOPT
-  equals: 1
-  template:
-  - - L
-    - h
-  - - V
-    - X
-- key: IOPT
-  equals: 2
-  template:
-  - - L
-    - h
-  - - V
-    - sig_s
-- key: IOPT
-  equals: 3
-  template:
-  - - X
-    - X
-  - - V
-    - sig_s
-- key: IOPT
-  equals: 7
-  template:
-  - - L
-    - h
-  - - V
-    - sig_s
+conditional_sections:
+  cond_section1:
+    predicate: IOPT
+    branches:
+      0:
+        - - X
+          - X
+      1:
+        - - L
+          - h
+        - - V
+          - X
+      2:
+        - - L
+          - h
+        - - V
+          - sig_s
+      3:
+        - - X
+          - X
+        - - V
+          - sig_s
+      7:
+        - - L
+          - h
+        - - V
+          - sig_s
 doc: |
+...

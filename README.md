@@ -13,11 +13,11 @@ Each Zgoubi element is defined in a `YAML` *document*. A `YAML` file consists ei
 of multiple documents. For simplicity, this repository describes each element in a separate `YAML` file with a single 
 implicit document. The document contains a *mapping* with the following keys:
 
-- **zgoubi_name**: the keyword of the element as defined by Zgoubi
-- **params**: the parameters of the element. See below.
-- **template**:
-- **cond_sections**:
-- **subelements**:
+- **zgoubi_name**: the keyword of the element as defined by Zgoubi;
+- **params**: the parameters of the element. See below.;
+- **template**: the template for the definition of the element in the Zgoubi input format;
+- **cond_sections**: the conditional sections. See below;
+- **subelements**: the sub-elements. See below;
 - **doc**: documentation relevant to the Zgoubi element. The documentation is extracted from the Zgoubi manual and 
 formatted as *reStructuredText* (`rst`) (for compatibility wit the `sphinx` documentation generator).
 
@@ -37,7 +37,7 @@ Zgoubi input with elements defined with default values to run without errors.
 
 Some elements require different input formats depending on the value of some (previously) defined parameters. The 
 conditional sections allow to define these *sections* for the Zgoubi element. Each conditional section has a `key` 
-which defines the parameter on which the conditional expression applies. 
+which defines the parameter on which the conditional expression applies.
 
 ### Definition of sub-elements
 
@@ -58,7 +58,7 @@ Also the data files can be accessed through the `pkg_resources` interface.
 ```python
 import pkg_resources
 
-pkg_resources.resource_listdir("zgoubi_metadata", "data/elements_yaml/")
+print(pkg_resources.resource_listdir("zgoubi_metadata", "data/elements_yaml/"))
 
 drift_yaml = pkg_resources.resource_string("zgoubi_metadata", "data/elements_yaml/DRIFT.yaml")
 ```
